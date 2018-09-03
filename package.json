@@ -1,16 +1,16 @@
 {
-  "name": "beaches",
+  "name": "cypress-playground",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
-  "author": "",
+  "author": "brian@olore.net",
   "license": "ISC",
-  "dependencies": {
-    "cypress": "^3.0.1"
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^3.1.0"
   }
 }
