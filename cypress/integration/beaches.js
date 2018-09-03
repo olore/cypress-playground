@@ -12,7 +12,7 @@ context('Window', () => {
 
     let day1 = Cypress.moment('2019-04-20');
     let day2 = Cypress.moment('2019-04-26');
-    let price = '$6,462.00';
+    let price = '$6,642.00';
 
     cy.get('#resortcode').select('BNG,B,12');
 
