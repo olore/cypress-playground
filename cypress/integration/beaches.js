@@ -2,7 +2,7 @@
 
 const { _, $ } = Cypress
 
-var outfile = '/Users/brian/dev/beaches' + '/output.log';
+var outfile = '~/dev/beaches/output.log';
 
 checkPrices({ name: 'Beaches Negril', code: 'BNG,B,12' });
 checkPrices({ name: 'Beaches Turks',  code: 'BTC,B,14' });
