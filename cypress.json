@@ -1,3 +1,10 @@
 {
-    "video": false
+    "video": false,
+    "blacklistHosts": [
+        "p.rfihub.com",
+        "pingdom.net",
+        "pages05.net",
+        "googlgetagmanager.com",
+        "coremetrics.com"
+    ]
 }
