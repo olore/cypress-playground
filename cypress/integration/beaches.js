@@ -4,8 +4,16 @@ const { _, $ } = Cypress
 
 var outfile = '~/dev/beaches/output.log';
 
-checkPrices({ name: 'Beaches Negril', code: 'BNG,B,12' });
-checkPrices({ name: 'Beaches Turks',  code: 'BTC,B,14' });
+var days = [
+  { name: 'Easter  2019', start: '2019-04-20', end: '2019-04-26' },
+  { name: 'August  2019', start: '2019-08-17', end: '2019-08-24' },
+  { name: 'NJ Week 2019', start: '2019-11-02', end: '2019-11-08' },
+  { name: 'Easter  2020', start: '2020-04-11', end: '2020-04-17' }
+];
+
+checkPrices({ name: 'Beaches Negril', code: 'BNG,B,12', days: days });
+checkPrices({ name: 'Beaches Ocho Rios', code: 'BBO,B,5', days: days });
+checkPrices({ name: 'Beaches Turks',  code: 'BTC,B,14', days: days });
 
 function checkPrices(resort) {
 
@@ -22,67 +30,21 @@ function checkPrices(resort) {
         cy.get('#resortcode').select(resort.code);
       })
 
-      it('Easter 2019', () => {
-        let day1 = Cypress.moment('2019-04-20');
-        let day2 = Cypress.moment('2019-04-26');
-        setDates(day1, day2);
+      resort.days.forEach(day => {
+        it(day.name, () => {
+          setDates(Cypress.moment(day.start), Cypress.moment(day.end));
 
-        cy.get('#Child_1').select('15');
-        cy.get('#Child_2').select('12');
+          cy.get('#Child_1').select('15');
+          cy.get('#Child_2').select('12');
+      //   cy.get('#adults').select('3');
+      //   cy.get('#children').select('1');
+      //   cy.get('#Child_1').select('13');
 
-        cy.get('#btnGetRates > a').click();
+          cy.get('#btnGetRates > a').click();
 
-        doit('Easter  2019');
+          doit(day.name);
+        });
       });
-
-      it('NJ Week 2019', () => {
-        let day1 = Cypress.moment('2019-11-02');
-        let day2 = Cypress.moment('2019-11-08');
-        setDates(day1, day2);
-        cy.get('#Child_1').select('15');
-        cy.get('#Child_2').select('12');
-        cy.get('#btnGetRates > a').click();
-
-        doit('NJ Week 2019');
-      });
-
-      it('Easter 2020', () => {
-        let day1 = Cypress.moment('2020-04-11');
-        let day2 = Cypress.moment('2020-04-17');
-        setDates(day1, day2);
-        cy.get('#adults').select('3');
-        cy.get('#children').select('1');
-        cy.get('#Child_1').select('13');
-        cy.get('#btnGetRates > a').click();
-
-        doit('Easter  2020');
-      });
-
-      it('NJ Week 2020', () => {
-        let day1 = Cypress.moment('2020-10-31');
-        let day2 = Cypress.moment('2020-11-06');
-        setDates(day1, day2);
-        cy.get('#adults').select('3');
-        cy.get('#children').select('1');
-        cy.get('#Child_1').select('14');
-        cy.get('#btnGetRates > a').click();
-
-        doit('NJ Week 2020');
-      });
-
-      it('Easter 2021', () => {
-        let day1 = Cypress.moment('2021-03-27');
-        let day2 = Cypress.moment('2021-04-02');
-        setDates(day1, day2);
-        cy.get('#adults').select('3');
-        cy.get('#children').select('1');
-
-        cy.get('#Child_1').select('13');
-        cy.get('#btnGetRates > a').click();
-
-        doit('Easter  2021');
-      });
-
 
       function setDates(day1, day2) {
         cy.get('#checkin_month').select(day1.format('M'));
