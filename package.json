@@ -9,7 +9,10 @@
   },
   "author": "brian@olore.net",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "googleapis": "^39.2.0",
+    "momentjs": "^2.0.0"
+  },
   "devDependencies": {
     "cypress": "^3.1.5"
   }

@@ -5,11 +5,10 @@ const { _, $ } = Cypress
 var outfile = '~/dev/beaches/output.log';
 
 var days = [
-  { name: 'Easter  2019', start: '2019-04-20', end: '2019-04-26' },
-  { name: 'Aug 17  2019', start: '2019-08-17', end: '2019-08-24' },
-  { name: 'Aug 24  2019', start: '2019-08-24', end: '2019-08-30' },
-  { name: 'NJ Week 2019', start: '2019-11-02', end: '2019-11-08' },
-  { name: 'Easter  2020', start: '2020-04-11', end: '2020-04-17' }
+  { name: 'Aug 17-24 2019',   start: '2019-08-17', end: '2019-08-24' },
+  { name: 'Aug 24-30  2019',  start: '2019-08-24', end: '2019-08-30' },
+  { name: 'NJ Week 2019',     start: '2019-11-02', end: '2019-11-08' },
+  { name: 'Easter  2020',     start: '2020-04-11', end: '2020-04-17' }
 ];
 
 checkPrices({ name: 'Beaches Negril', code: 'BNG,B,12', days: days });
