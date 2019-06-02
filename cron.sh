@@ -6,3 +6,4 @@ cd $HOME/dev/beaches
 rm -f output.log
 npm run cypress:run > /dev/null
 cat output.log | mail -s "Beaches price check" brian@olore.net
+node google/index.js
